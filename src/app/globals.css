@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-gold: #D9A62E;
+  --color-gold-hover: #C59424;
+  --color-gold-light: #FDF8E8;
+  --color-gold-border: #F3E4B5;
+  
+  --color-forest: #3F6B55;
+  --color-forest-hover: #325644;
+  --color-forest-dark: #1E3329;
+  --color-forest-light: #EBF3EE;
+  --color-forest-border: #C8DCD0;
+
+  --color-cream-bg: #FAF8F5;
+  --color-cream-card: #FFFFFF;
+  --color-cream-border: #E8E4DC;
+  
+  --theme-text-main: #1E3329;
+  --theme-text-muted: #5A6D63;
+  --theme-text-dark: #111D17;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: #FAF8F5;
+    color: #1E3329;
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.font-serif-heading {
+  font-family: 'Cinzel', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Custom Scrollbar in Warm Colors */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F1EA;
+}
+::-webkit-scrollbar-thumb {
+  background: #C8C2B4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3F6B55;
+}
+
+/* Subtle Hero Floating Animation */
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-hero-float {
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
 }
